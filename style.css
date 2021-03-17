@@ -1,3 +1,33 @@
+/* My added style start */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: whitesmoke;
+    color: white;
+  }
+
+.footer-link {
+    color: black;
+}
+
+ #exp {
+    background-color: red;
+    padding: 10px;
+    color: rgb(12, 12, 12);
+} 
+
+#inc {
+    background-color: rgb(35, 238, 16);
+    padding: 10px;
+    
+}
+
+#allCost{
+    background-color: rgb(16, 168, 238);
+    padding: 10px;
+}
+/* My added style stop */
+
 @font-face {
     font-family: 'Gilroy';
     src: url('font/Gilroy-Regular.woff') format('woff');
@@ -60,9 +90,9 @@ input[type=number] {
     font-family: 'Gilroy Bold';
 }
 
-.budget-header{
+/* .budget-header{
 
-}
+} */
 
 .budget-header .balance{
     margin-top: 45px;
@@ -221,9 +251,9 @@ input[type=number] {
     background-repeat: no-repeat;
 }
 
-.budget-dashboard #all ul.list li.income{
+/* .budget-dashboard #all ul.list li.income{
 
-}
+} */
 .budget-dashboard #all ul.list li.expense{
     color: #f0624d;
 }
@@ -241,6 +271,7 @@ input[type=number] {
     width: 360px;
     bottom: 0;
     border-top: 1px solid #ccc;
+
 }
 
 .budget-dashboard #expense .input *{
