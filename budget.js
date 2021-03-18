@@ -6,12 +6,14 @@ const incomeTotalEl = document.querySelector(".income-total");
 const outcomeTotalEl = document.querySelector(".outcome-total");
 const incomeEl = document.querySelector("#income");
 const expenseEl = document.querySelector("#expense");
+const exchangeEl = document.querySelector("#exchange");
 const allEl = document.querySelector("#all");
 const incomeList = document.querySelector("#income .list");
 const expenseList = document.querySelector("#expense .list");
 const allList = document.querySelector("#all .list");
 
 // SELECT BTNS
+const exchangeBtn = document.querySelector(".tab4");
 const expenseBtn = document.querySelector(".tab1");
 const incomeBtn = document.querySelector(".tab2");
 const allBtn = document.querySelector(".tab3");
@@ -35,25 +37,32 @@ ENTRY_LIST = JSON.parse(localStorage.getItem("entry_list")) || [];
 updateUI();
 
 // EVENT LISTENERS
+exchangeBtn.addEventListener("click", function(){
+    show(exchangeEl);
+    hide( [expenseEl, incomeEl, allEl] );
+    active( exchangeBtn );
+    inactive( [expenseBtn, incomeBtn, allBtn] );
+})
+
 expenseBtn.addEventListener("click", function(){
     show(expenseEl);
-    hide( [incomeEl, allEl] );
+    hide( [exchangeEl,incomeEl, allEl] );
     active( expenseBtn );
-    inactive( [incomeBtn, allBtn] );
+    inactive( [exchangeBtn, incomeBtn, allBtn] );
 })
 
 incomeBtn.addEventListener("click", function(){
     show(incomeEl);
-    hide( [expenseEl, allEl] );
+    hide( [exchangeEl, expenseEl, allEl] );
     active( incomeBtn );
-    inactive( [expenseBtn, allBtn] );
+    inactive( [exchangeBtn, expenseBtn, allBtn] );
 })
 
 allBtn.addEventListener("click", function(){
     show(allEl);
-    hide( [incomeEl, expenseEl] );
+    hide( [exchangeEl, incomeEl, expenseEl] );
     active( allBtn );
-    inactive( [incomeBtn, expenseBtn] );
+    inactive( [exchangeBtn, incomeBtn, expenseBtn] );
 })
 
 // ADD EXPENSE

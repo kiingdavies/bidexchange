@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bidexchange</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" >
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css'>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,13 +18,15 @@
         </div>
         <div class="budget-header">
             <div class="balance">
-                <div class="title">
-                    Balance
-                </div>
-                <div class="value">
-                    <small>$</small>0
-                </div>
+                    <div class="title">
+                        Balance
+                        <lottie-player class="outcome" src="https://assets8.lottiefiles.com/temp/lf20_pO3t5Q.json"  background="transparent"  speed="1"  style="width: 100px; height: 100px;float: right;"  loop autoplay></lottie-player>
+                    </div>
+                    <div class="value">
+                        <small>$</small>0
+                    </div>
             </div>
+
             <div class="account">
                 <div class="income">
                     <div class="title">
@@ -31,7 +36,9 @@
                         <small>$</small>0
                     </div>
                 </div>
+                <!-- chart renders here -->
                 <div class="chart"></div>
+
                 <div class="outcome">
                     <div class="title">
                         Outcome
@@ -44,15 +51,22 @@
         </div>
         <div class="budget-dashboard">
             <div class="dash-title">Dashboard</div>
+            
             <div class="toggle">
-                <div id="exp" class="tab1">Expenses</div>
-                <div id="inc" class="tab2">Income</div>
-                <div id="allCost" class="tab3 active">All</div>
+                <div id="exch"class="tab4"><dotlottie-player src="https://assets4.lottiefiles.com/dotlotties/dlf10_g9dfs35a.lottie" mode="bounce" background="transparent"  speed="1"  style="width: 50px; height: 50px;"  loop  autoplay></dotlottie-player></div>
+                <div id="exp" class="tab1"><lottie-player src="https://assets10.lottiefiles.com/packages/lf20_wKz7vf.json"  background="transparent"  speed="1"  style="width: 50px; height: 50px;"  loop  autoplay></lottie-player></div>
+                <div id="inc" class="tab2"><lottie-player src="https://assets3.lottiefiles.com/packages/lf20_cXPDDp.json"  background="transparent"  speed="1"  style="width: 50px; height: 50px;"  loop  autoplay></lottie-player></div>
+                <div id="allCost" class="tab3 active"><lottie-player src="https://assets2.lottiefiles.com/private_files/lf30_hilbd2uq.json"  background="transparent"  speed="1"  style="width: 50px; height: 50px;"  loop  autoplay></lottie-player></div>
+                <p>Enter a title & amount below when you click Expenses or Income</p>
             </div>
+            
+
+          
+
             <div class="hide" id="income">
                 <ul class="list"></ul>
                 <div class="input">
-                    <input type="text" id="income-title-input" name="title" placeholder="Title">
+                    <input type="text" id="income-title-input" name="title" placeholder="Income Title">
                     <input type="number" id="income-amount-input" name="amount" placeholder="$0">
                     <div class="add-income"><img src="icon/plus.png" alt="add income button"></div>
                 </div>
@@ -60,7 +74,7 @@
             <div class="hide" id="expense">
                 <ul class="list"></ul>
                 <div class="input">
-                    <input type="text" id="expense-title-input" name="title" placeholder="Title">
+                    <input type="text" id="expense-title-input" name="title" placeholder="Expense Title">
                     <input type="number" id="expense-amount-input" name="amount" placeholder="$0">
                     <div class="add-expense"><img src="icon/plus.png" alt="add expense button"></div>
                 </div>
@@ -68,9 +82,69 @@
             <div id="all">
                 <ul class="list"></ul>
             </div>
+
+            <!-- Exchange OutPut start -->
+            <div class="hide" id="exchange" class="container">
+                <div class="currency">
+                    <select id="from_currency">
+                    <option value="AED">AED</option>
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="EGP">EGP</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="ILS">ILS</option>
+                    <option value="INR">INR</option>
+                    <option value="JPY">JPY</option>
+                    <option value="KWD">KWD</option>
+                    <option value="NGN">NGN</option>
+                    <option value="NZD">NZD</option>
+                    <option value="RUB">RUB</option>
+                    <option value="SAR">SAR</option>
+                    <option value="USD" selected>USD</option>
+                    
+                    </select>
+                    <input type="number" id="from_ammount" placeholder="0" value=1 />
+                </div>
+                <div class="middle">
+                    <button id="exchange">
+                    <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    <div class="rate" id="rate"></div>
+                </div>
+                <div class="currency">
+                    <select id="to_currency"><option value="AED">AED</option>
+                    <option value="AED" selected>AED</option>
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="EGP">EGP</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="ILS">ILS</option>
+                    <option value="INR">INR</option>
+                    <option value="JPY">JPY</option>
+                    <option value="KWD">KWD</option>
+                    <option value="NGN">NGN</option>
+                    <option value="NZD">NZD</option>
+                    <option value="RUB">RUB</option>
+                    <option value="SAR">SAR</option>
+                    <option value="USD">USD</option>
+                    </select>
+                    <input type="number" id="to_ammount" placeholder="0" />
+                </div>
+                <h3>Contact us via Whatsapp to exchange any currency anywhere in United Arab Emirates!!! </h3>
+            </div>
+            <!-- Exchange OutPut  -->
         </div>
 
+      <!-- Whatsapp start -->
+<a href="https://api.whatsapp.com/send?phone=+971556945269&text=Hello BidExchange!" class="float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    </a>
+  <!-- Whatsapp stop-->
+
         <footer class="text-center">
+            
             <div class="footer-link">
               Copyright © 2021
               <a
@@ -80,12 +154,16 @@
                 >NuralTec Inc</a
               >.
             </div>
+            
           </footer>
     </div>
     
 
     <script src="chart.js"></script>
     <script src="budget.js"></script>
-    
+    <script  src="function.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
+
 </body>
 </html>
