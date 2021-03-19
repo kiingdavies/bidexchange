@@ -37,6 +37,13 @@ ENTRY_LIST = JSON.parse(localStorage.getItem("entry_list")) || [];
 updateUI();
 
 // EVENT LISTENERS
+window.addEventListener('load', (event) => {
+    show(exchangeEl);
+    hide( [expenseEl, incomeEl, allEl] );
+    active( exchangeBtn );
+    inactive( [expenseBtn, incomeBtn, allBtn] );
+});
+
 exchangeBtn.addEventListener("click", function(){
     show(exchangeEl);
     hide( [expenseEl, incomeEl, allEl] );
